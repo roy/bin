@@ -1,0 +1,4 @@
+#!/bin/sh
+
+mysqldump -u root --add-drop-table $1 > $1.sql
+

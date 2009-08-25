@@ -1,0 +1,22 @@
+class Object
+  def local_methods
+    (methods - Object.instance_methods).sort
+  end
+end
+ 
+# have colorized output
+require 'rubygems'
+require 'wirble'
+Wirble.init
+Wirble.colorize
+
+require 'pp' #pretty print
+
+#require 'hirb'
+#Hirb::View.enable
+
+# output log from rails to the console
+#require 'logger'
+#if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
+#  Object.const_set('RAILS_DEFAULT_LOGGER', Logger.new(STDOUT))
+#end

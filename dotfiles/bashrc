@@ -1,0 +1,6 @@
+. ~/bin/dotfiles/bash/env
+. ~/bin/dotfiles/bash/config
+. ~/bin/dotfiles/bash/aliases
+
+# to use the fink hierarchy if installed
+test -r /sw/bin/init.sh && . /sw/bin/init.sh

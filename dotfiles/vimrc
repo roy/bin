@@ -1,0 +1,150 @@
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+if has("vms")
+  set nobackup    " do not keep a backup file, use versions instead
+else
+  "set backup   " keep a backup file
+endif
+set history=50    " keep 50 lines of command line history
+set ruler   " show the cursor position all the time
+set showcmd   " display incomplete commands
+set incsearch   " do incremental searching
+
+" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
+" let &guioptions = substitute(&guioptions, "t", "", "g")
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
+" This is an alternative that also works in block mode, but the deleted
+" text is lost and it only works for putting the current register.
+"vnoremap p "_dp
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
+
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  filetype plugin indent on
+
+  " Put these in an autocmd group, so that we can delete them easily.
+  augroup vimrcEx
+  au!
+  
+  " For all text files set 'textwidth' to 78 characters.
+  autocmd FileType text setlocal textwidth=78
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside an event handler
+  " (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+  augroup END
+
+else
+  set autoindent    " always set autoindenting on
+
+endif " has("autocmd")
+
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set mouse=a
+"set term=linux
+set nocompatible
+syntax on
+filetype plugin indent on
+colorscheme vividchalk 
+
+let uname = substitute(system("uname"),"\n","","g")
+if uname == "Linux"
+  " ubuntu stuff"
+  if $COLORTERM == 'gnome-terminal'
+    set term=gnome-256color
+    colorscheme railscasts 
+  endif
+
+elseif uname == "Darwin"
+  if has("gui_running")
+    set transparency=2
+    "set guifont=DejaVu\ Sans\ Mono:h10
+    set guifont=Inconsolata:h12
+    set fuoptions=maxvert,maxhorz
+    :map <D-enter> :set fullscreen! <CR>
+    set co=140
+    set lines=55
+    set number
+
+    colorscheme railscasts
+    
+    
+    "tab switching
+     map <D-1> :tabn 1<CR>
+     map <D-2> :tabn 2<CR>
+     map <D-3> :tabn 3<CR>
+     map <D-4> :tabn 4<CR>
+     map <D-5> :tabn 5<CR>
+     map <D-6> :tabn 6<CR>
+     map <D-7> :tabn 7<CR>
+     map <D-8> :tabn 8<CR>
+     map <D-9> :tabn 9<CR>
+
+     map! <D-1> <C-O>:tabn 1<CR>
+     map! <D-2> <C-O>:tabn 2<CR>
+     map! <D-3> <C-O>:tabn 3<CR>
+     map! <D-4> <C-O>:tabn 4<CR>
+     map! <D-5> <C-O>:tabn 5<CR>
+     map! <D-6> <C-O>:tabn 6<CR>
+     map! <D-7> <C-O>:tabn 7<CR>
+     map! <D-8> <C-O>:tabn 8<CR>
+     map! <D-9> <C-O>:tabn 9<CR>
+  endif
+endif
+
+
+:map <C-t> :FuzzyFinderTextMate<CR>
+:map <C-f> :ruby finder.rescan!<CR>
+
+" really basic commenting -- vim.org tip #271
+" lhs comments 
+map ,# :s/^\s*/\0#/<CR>:nohlsearch<CR> 
+map ,/ :s/^\s*/\0\/\//<CR>:nohlsearch<CR> 
+"map ,/ :s/^/\/\/ /<CR>:nohlsearch<CR> 
+map ,> :s/^\s*/\0>/<CR>:nohlsearch<CR> 
+map ," :s/^\s*/\0\"/<CR>:nohlsearch<CR> 
+map ,% :s/^\s*/\0%/<CR>:nohlsearch<CR> 
+map ,! :s/^\s*/\0!/<CR>:nohlsearch<CR> 
+map ,; :s/^\s*/\0;/<CR>:nohlsearch<CR> 
+map ,- :s/^\s*/\0-- /<CR>:nohlsearch<CR> 
+"map ,c :s/^\s*\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR> 
+" wrapping comments 
+map ,* :s/^\(.*\)$/\/\* \1 \*\//<CR>:nohlsearch<CR> 
+map ,( :s/^\(.*\)$/\(\* \1 \*\)/<CR>:nohlsearch<CR> 
+map ,< :s/^\(.*\)$/<!-- \1 -->/<CR>:nohlsearch<CR> 
+map ,d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR>:nohlsearch<CR> 
+
+"easy switching through splitscreens
+nnoremap <F6> <C-W>w
+nnoremap <S-F6> <C-W>W
+command Q q
+command W w
+
+"set t_Co=256
+"colorscheme railscasts
+

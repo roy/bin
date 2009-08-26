@@ -66,8 +66,8 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set mouse=a
-"set term=linux
 set nocompatible
+"set number
 syntax on
 filetype plugin indent on
 colorscheme vividchalk 
@@ -76,7 +76,8 @@ let uname = substitute(system("uname"),"\n","","g")
 if uname == "Linux"
   " ubuntu stuff"
   if $COLORTERM == 'gnome-terminal'
-    set term=gnome-256color
+    " If you get an error on this command => sudo apt-get install ncurses-term 
+    set term=xterm-256color
     colorscheme railscasts 
   endif
 
@@ -89,7 +90,6 @@ elseif uname == "Darwin"
     :map <D-enter> :set fullscreen! <CR>
     set co=140
     set lines=55
-    set number
 
     colorscheme railscasts
     
@@ -145,6 +145,5 @@ nnoremap <S-F6> <C-W>W
 command Q q
 command W w
 
-"set t_Co=256
-"colorscheme railscasts
-
+set term=xterm-256color
+colorscheme railscasts

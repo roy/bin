@@ -1,0 +1,52 @@
+# Allow 256 colors
+  attrcolor b ".I"
+  defbce "on"
+  term screen-256color
+
+# Remove some stupid / dangerous key bindings
+  bind ^k
+  bind ^\
+  
+# Make them better
+  bind \\ quit
+  bind K kill
+  bind I login on
+  bind O login off
+  bind } history
+
+# Change default escape sequence from C-a to a backtick
+#  escape ``                            # default ^Aa
+  escape "^  "
+
+# Make the F11 (not F1!) key an alternative screen scape (besides `C-a').
+  bindkey -k F1 command
+
+# Do not display the copyright page
+  startup_message off                  # default: on
+
+# Change the number of scrollback lines
+  defscrollback 1000                   # default: 100
+
+# Ensure the default shell is the same as the $SHELL environment variable
+  shell -$SHELL
+
+# Make navigating between regions easier
+  bind s split
+  bind j focus down
+  bind k focus up
+
+# Make resizing regions easier
+  bind = resize =
+  bind + resize +1
+  bind - resize -1
+
+# Configure status bar at the bottom of the terminal
+  hardstatus alwayslastline
+  hardstatus string "%{= kb}[ %=%{w}%?%-Lw%?%{C}(%{W}%n*%f %t%?(%u)%?%{C})%{w}%?%+Lw%?%?%= %{b}][%{C} %Y.%m.%d %{W}%0c %{b}]"
+
+# forgot where this was for :)
+  termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+  termcapinfo xterm|gnome* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+  termcapinfo xterm*|rxvt*|kterm*|Eterm* hs:ts=\E]0;:fs=\007:ds=\E]0;\007
+
+# End of file

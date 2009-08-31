@@ -51,3 +51,17 @@ PS1="\[$GREEN\]\n\u@\h\[$NO_COLOR\]:\[$BLUE\]\w \[$RED\]\$(parse_git_branch)\[$N
 	
 PS2='> '
 PS4='+ '
+
+#unset PROMPT_COMMAND
+#if [ "$SHELL" = '/bin/bash' ]
+#then
+#    case $TERM in
+#         rxvt|*term)
+#            set -o functrace
+#            trap 'echo -ne "\e]0;$BASH_COMMAND\007"' DEBUG
+#            export PS1="\e]0;$TERM\007$PS1"
+#         ;;
+#    esac
+#fi
+PROMPT_COMMAND='echo -ne "\033]0;${USER}: ${PWD/$HOME/~}\007"'
+#PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'.

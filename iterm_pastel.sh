@@ -105,14 +105,14 @@ PASTEL='"Pastel" =     {
         "Red Component" = 1;
     };
     "Disable Bold" = 0;
-    Font = "Monaco 14";
+    Font = "Monaco 12";
     "Foreground Color" =         {
         "Blue Component" = 1;
         "Green Component" = 1;
         "Red Component" = 1;
     };
     "Horizontal Character Spacing" = 1;
-    NAFont = "Monaco 14";
+    NAFont = "Monaco 12";
     Rows = 24;
     "Selected Text Color" =         {
         "Blue Component" = 0.9476005;

@@ -1,3 +1,5 @@
+#!/usr/bin/ruby
+
 INSTALLER_VERSION = "1.2.3"
 
 =begin

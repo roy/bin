@@ -46,3 +46,5 @@ export set ORACLE_HOME=/usr/local/oracle/instantclient_10_2
 export set DYLD_LIBRARY_PATH=$ORACLE_HOME
 export set TNS_ADMIN=$ORACLE_HOME/network/admin
 export set PATH=$PATH:$ORACLE_HOME
+
+export PATH="/opt/ruby-enterprise-1.8.7-2010.01/bin:$PATH"

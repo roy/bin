@@ -67,7 +67,7 @@ set tabstop=2
 set shiftwidth=2
 set mouse=a
 set nocompatible
-"set number
+set number
 syntax on
 filetype plugin indent on
 colorscheme vividchalk 
@@ -85,13 +85,13 @@ elseif uname == "Darwin"
   if has("gui_running")
     set transparency=2
     "set guifont=DejaVu\ Sans\ Mono:h10
-    set guifont=Inconsolata:h12
+    set guifont=Monaco:h11
     set fuoptions=maxvert,maxhorz
     :map <D-enter> :set fullscreen! <CR>
     set co=140
     set lines=55
 
-    colorscheme railscasts
+    colorscheme ir_black
     
     
     "tab switching
@@ -148,7 +148,7 @@ command W w
 "set term=xterm-256color
 set term=xterm
 set t_Co=256
-colorscheme railscasts
+colorscheme ir_black 
 
 :noremap ,n :NERDTreeToggle<CR>
 " Open NERDTree on start

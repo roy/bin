@@ -93,7 +93,7 @@ PASTEL='"Pastel" =     {
         "Green Component" = 0.5067359;
         "Red Component" = 0.9909502;
     };
-    Columns = 120;
+    Columns = 80;
     "Cursor Color" =         {
         "Blue Component" = 0.3764706;
         "Green Component" = 0.6470588;

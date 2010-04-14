@@ -19,11 +19,9 @@ fi
 export PATH="/usr/local/mysql/bin:$PATH"
 export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$PATH"
 export PATH="~/bin:$PATH"
-export EDITOR="mate -w"
+export EDITOR="vim"
 export MANPATH="/usr/local/man:$MANPATH"
 alias fs='du -h -d 1 $1'
-export DYLD_LIBRARY_PATH=/usr/ora_instant_client/instantclient_10_2
-export TNS_ADMIN=/usr/ora_instant_client/instantclient_10_2
 #export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH" 
 
 #aws setup
@@ -42,9 +40,10 @@ export EC2_URL="https://eu-west-1.ec2.amazonaws.com"
 #export SQLPATH
 #export TNS_ADMIN=/etc/oracle
 
-export set ORACLE_HOME=/usr/local/oracle/instantclient_10_2
+export set ORACLE_HOME=/usr/local/oracle/instantclient
 export set DYLD_LIBRARY_PATH=$ORACLE_HOME
-export set TNS_ADMIN=$ORACLE_HOME/network/admin
+export set TNS_ADMIN=/usr/local/oracle/network/admin
 export set PATH=$PATH:$ORACLE_HOME
 
 export PATH="/opt/ruby-enterprise-1.8.7-2010.01/bin:$PATH"
+export PATH="$ORACLE_HOME:$PATH"

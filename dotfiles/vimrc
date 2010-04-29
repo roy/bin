@@ -76,7 +76,7 @@ elseif uname == "Darwin"
     set guifont=Monaco:h11
     set fuoptions=maxvert,maxhorz
     :map <D-enter> :set fullscreen! <CR>
-    set co=140
+    set co=150
     set lines=55
 
     colorscheme ir_black
@@ -94,7 +94,7 @@ elseif uname == "Darwin"
     map <D-9> :tabn 9<CR>
 
     map! <D-1> <C-O>:tabn 1<CR>
-    map! <D-2> <C-O>:tabn 2<CR>
+    map! <D-> <C-O>:tabn 2<CR>
     map! <D-3> <C-O>:tabn 3<CR>
     map! <D-4> <C-O>:tabn 4<CR>
     map! <D-5> <C-O>:tabn 5<CR>

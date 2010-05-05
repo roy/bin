@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# IEs 4 Linux script to run ie6 - http://tatanka.com.br/ies4linux
+
+cd
+export WINEPREFIX="/home/roy/.ies4linux/ie6"
+if [ -f "/home/roy/.ies4linux/ie6/.firstrun" ]; then
+	rm "/home/roy/.ies4linux/ie6/.firstrun"
+	wine "/home/roy/.ies4linux/ie6/drive_c/Program Files/Internet Explorer/IEXPLORE.EXE" "http://www.tatanka.com.br/ies4linux/ok-en.html"
+else
+	wine "/home/roy/.ies4linux/ie6/drive_c/Program Files/Internet Explorer/IEXPLORE.EXE" "$@"
+fi
+

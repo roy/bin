@@ -1,0 +1,4 @@
+#!/bin/sh
+
+mvim -d -g "$2" "$5" | cat
+

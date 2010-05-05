@@ -1,1 +1,9 @@
 . ~/bin/dotfiles/bashrc
+##
+# Your previous /Users/roy/.bash_profile file was backed up as /Users/roy/.bash_profile.macports-saved_2010-04-19_at_13:36:45
+##
+
+# MacPorts Installer addition on 2010-04-19_at_13:36:45: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+

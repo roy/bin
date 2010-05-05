@@ -29,7 +29,7 @@ function zipr() {
 }
 
 function find_in_source(){
-	 find . -name "*rb" -o -name "*erb" | xargs grep -ni "$1"
+	 find . -name "*rb" -o -name "*erb" -o -name "*yml" | xargs grep -ni "$1"
 }
 
 # Finder
@@ -181,3 +181,7 @@ function parse_git_branch {
 }
 
 alias scrails='screen -c ~/.rails.screen'
+
+function git_diff() {
+  git diff --no-ext-diff -w "$@" | mvim -R -
+}

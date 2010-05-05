@@ -12,7 +12,7 @@ Wirble.colorize
 
 require 'pp' #pretty print
 
-require 'hirb'
+#require 'hirb'
 #Hirb.enable
 
 # output log from rails to the console

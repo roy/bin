@@ -1,0 +1,19 @@
+[user]
+  name = Roy van der meij 
+  email = roy.van.der.meij@holder.nl
+
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
+
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[diff]
+	external = git_diff_wrapper
+[push]
+	default = current

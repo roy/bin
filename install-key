@@ -1,4 +1,4 @@
-#!/usr/bin/ruby -w
+#!/usr/local/bin/ruby -w
 
 #!/bin/env ruby -w
 # Originally from http://github.com/adamcooke/key-installer/tree/master

@@ -55,18 +55,27 @@ set mouse=a
 set nocompatible
 set number
 syntax on
-colorscheme vividchalk 
 
 " operating system specific settings
 let uname = substitute(system("uname"),"\n","","g")
 " ubuntu stuff"
 if uname == "Linux"
+  map <m-1> :tabn 1<CR>
+  map <m-2> :tabn 2<CR>
+  map <m-3> :tabn 3<CR>
+  map <m-4> :tabn 4<CR>
+  map <m-5> :tabn 5<CR>
+  map <m-6> :tabn 6<CR>
+  map <m-7> :tabn 7<CR>
+  map <m-8> :tabn 8<CR>
+  map <m-9> :tabn 9<CR>
 
-  if $COLORTERM == 'gnome-terminal'
-    " If you get an error on this command => sudo apt-get install ncurses-term 
-    set term=xterm-256color
-    colorscheme railscasts 
-  endif
+  " Textmate indent keybindings
+  nmap <m-[> <<
+  nmap <m-]> >>
+  vmap <m-[> <gv
+  vmap <m-]> >gv
+  
 
 "OSX Stuff
 elseif uname == "Darwin"
@@ -79,9 +88,6 @@ elseif uname == "Darwin"
     set co=150
     set lines=55
 
-    colorscheme ir_black
-    
-    
     "tab switching
     map <D-1> :tabn 1<CR>
     map <D-2> :tabn 2<CR>
@@ -120,9 +126,18 @@ elseif uname == "Darwin"
 
     " zoeken naar definities
     nmap <Leader>m /^ *def 
+    nmap <D-[> <<
+    nmap <D-]> >>
+    vmap <D-[> <gv
+    vmap <D-]> >gv
   endif
 endif
 
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+  
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬ 
 
 :map <C-t> :FuzzyFinderTextMate<CR>
 :map <C-f> :ruby finder.rescan!<CR>
@@ -149,6 +164,7 @@ nnoremap <F6> <C-W>w
 nnoremap <S-F6> <C-W>W
 command Q q
 command W w
+command Wq wq
 
 "set term=xterm-256color
 set term=xterm
@@ -156,3 +172,4 @@ set t_Co=256
 colorscheme google
 
 :noremap ,n :NERDTreeToggle<CR>
+

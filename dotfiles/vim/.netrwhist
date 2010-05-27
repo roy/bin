@@ -1,4 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/Users/roy/Projects/InHolland/2009/Inzendingen/Stef Kampen 427868/blog'
 let g:netrw_dirhist_2='/Users/roy/Sites/sweetcolours_betty/vendor/plugins/betty'
+let g:netrw_dirhist_3='/Users/roy/.rvm/gems/ruby-1.8.6-p399/gems/gemedit-0.9.0'
+let g:netrw_dirhist_4='/Users/roy/.rvm/gems/ruby-1.8.6-p399/gems/actionpack-2.3.5'
+let g:netrw_dirhist_5='/Users/roy/.rvm/gems/ruby-1.8.6-p399/gems/activesupport-2.3.5'
+let g:netrw_dirhist_6='/Users/roy/.rvm/gems/ruby-1.8.6-p399/gems/rack-1.1.0'
+let g:netrw_dirhist_7='/Users/roy/bin/dotfiles/bash'

@@ -20,6 +20,7 @@ export PATH="/usr/local/mysql/bin:$PATH"
 export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$PATH"
 export PATH="~/bin:$PATH"
 export EDITOR="vim"
+export GEMEDITOR="mvim"
 export MANPATH="/usr/local/man:$MANPATH"
 alias fs='du -h -d 1 $1'
 #export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH" 

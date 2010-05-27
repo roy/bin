@@ -7,3 +7,21 @@
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
+
+##
+# Your previous /Users/roy/.bash_profile file was backed up as /Users/roy/.bash_profile.macports-saved_2010-05-25_at_21:18:28
+##
+
+# MacPorts Installer addition on 2010-05-25_at_21:18:28: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+
+##
+# Your previous /Users/roy/.bash_profile file was backed up as /Users/roy/.bash_profile.macports-saved_2010-05-25_at_21:19:53
+##
+
+# MacPorts Installer addition on 2010-05-25_at_21:19:53: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+

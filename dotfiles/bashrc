@@ -4,4 +4,5 @@
 
 # to use the fink hierarchy if installed
 test -r /sw/bin/init.sh && . /sw/bin/init.sh
-if [[ -s /home/roy/.rvm/scripts/rvm ]] ; then source /home/roy/.rvm/scripts/rvm ; fi
+
+if [[ -s /Users/roy/.rvm/scripts/rvm ]] ; then source /Users/roy/.rvm/scripts/rvm ; fi

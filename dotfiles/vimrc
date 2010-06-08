@@ -87,6 +87,7 @@ elseif uname == "Darwin"
     :map <D-enter> :set fullscreen! <CR>
     set co=150
     set lines=55
+    set go-=T
 
     "tab switching
     map <D-1> :tabn 1<CR>
@@ -169,7 +170,7 @@ command Wq wq
 "set term=xterm-256color
 set term=xterm
 set t_Co=256
-colorscheme google
+colorscheme molokai
 
 :noremap ,n :NERDTreeToggle<CR>
 

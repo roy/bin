@@ -48,3 +48,4 @@ export set PATH=$PATH:$ORACLE_HOME
 
 export PATH="/opt/ruby-enterprise-1.8.7-2010.01/bin:$PATH"
 export PATH="$ORACLE_HOME:$PATH"
+export PATH="/Users/roy/bin:$PATH"

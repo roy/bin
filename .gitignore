@@ -6,3 +6,4 @@ config/database.yml
 db/*.sqlite3
 db/*.sql
 public/assets/*
+dotfiles/vim/.netrwhist

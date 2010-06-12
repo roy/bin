@@ -113,11 +113,6 @@ elseif uname == "Darwin"
     " Textmate indent keybindings
     map <D-[> <<
     map <D-]> >>
-    "vmap <D-[> <gv
-    "vmap <D-]> >gv
-
-    " Shortcut to rapidly toggle `set list`
-    nmap <leader>l :set list!<CR>
 
     " Use the same symbols as TextMate for tabstops and EOLs
     set listchars=tab:▸\ ,eol:¬ 
@@ -127,18 +122,11 @@ elseif uname == "Darwin"
 
     " zoeken naar definities
     nmap <Leader>m /^ *def 
-    nmap <D-[> <<
-    nmap <D-]> >>
-    vmap <D-[> <gv
-    vmap <D-]> >gv
   endif
 endif
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
-  
-" Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬ 
 
 :map <C-t> :FuzzyFinderTextMate<CR>
 :map <C-f> :ruby finder.rescan!<CR>

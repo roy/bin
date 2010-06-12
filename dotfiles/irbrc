@@ -11,6 +11,7 @@ require 'ap'
 Wirble.init
 Wirble.colorize
 
+# gem install awesome_print
 require 'pp' #pretty print
 
 #require 'hirb'

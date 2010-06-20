@@ -4,13 +4,12 @@ module Autotest::Growl
   end
 
   Autotest.add_hook :ran_command do |at|
-    puts "at: '#{at.results}'"
-    output = at.results.slice(/(\d+)\s.*specifications?,\s(\d+)\s.*failures?/)
-    puts "out: #{output}"
+    #output = at.results.slice(/(\d+)\s.*specifications?,\s(\d+)\s.*failures?/)
+    output = at.results.last.slice(/(\d+).*errors/)
     if output =~ /[1-9]\sfailures?/
-      growl "Test Results", "#{output}", '~/Library/autotest/rails_fail.png', 2 #, "-s" 
+      growl "Test Results", "#{output}", '~/bin/autotest/rails_fail.png', 2 #, "-s" 
     else
-      growl "Test Results", "#{output}", '~/Library/autotest/rails_ok.png'
+      growl "Test Results", "#{output}", '~/bin/autotest/rails_ok.png'
     end
   end
 end

@@ -158,7 +158,10 @@ command Wq wq
 "set term=xterm-256color
 set term=xterm
 set t_Co=256
-colorscheme molokai
+colorscheme railscasts
 
 :noremap ,n :NERDTreeToggle<CR>
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR> 
+
+autocmd BufRead,BufNewFile Gemfile set filetype=Gemfile 
+

@@ -72,8 +72,8 @@ highlight DiffDelete                guifg=#E6E1DC ctermfg=7 guibg=#660000 ctermb
 highlight Special                   guifg=#DA4939 ctermfg=167 
 
 highlight pythonBuiltin             guifg=#6D9CBE ctermfg=73 gui=NONE cterm=NONE
-highlight rubyBlockParameter        guifg=#FFFFFF ctermfg=15
-highlight rubyClass                 guifg=#FFFFFF ctermfg=15
+highlight rubyBlockParameter        guifg=#D0D0FF ctermfg=15
+highlight rubyClass                 guifg=#CC7833 ctermfg=15
 highlight rubyConstant              guifg=#DA4939 ctermfg=167
 highlight rubyInstanceVariable      guifg=#D0D0FF ctermfg=189
 highlight rubyInterpolation         guifg=#519F50 ctermfg=107
@@ -81,6 +81,9 @@ highlight rubyLocalVariableOrMethod guifg=#D0D0FF ctermfg=189
 highlight rubyPredefinedConstant    guifg=#DA4939 ctermfg=167
 highlight rubyPseudoVariable        guifg=#FFC66D ctermfg=221
 highlight rubyStringDelimiter       guifg=#A5C261 ctermfg=143
+hi rubyRegexpDelimiter         guifg=#FF8000      guibg=NONE      gui=NONE      ctermfg=brown          ctermbg=NONE      cterm=NONE
+hi rubyControl                 guifg=#CC7833      guibg=NONE      gui=NONE      ctermfg=blue           ctermbg=NONE      cterm=NONE  "and break, etc
+hi rubyRegexp                  guifg=#A5C261      guibg=NONE      gui=NONE      ctermfg=brown          ctermbg=NONE      cterm=NONE
 
 highlight xmlTag                    guifg=#E8BF6A ctermfg=179
 highlight xmlTagName                guifg=#E8BF6A ctermfg=179

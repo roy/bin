@@ -99,6 +99,8 @@ call <SID>HtmlIndentPush('tt')
 call <SID>HtmlIndentPush('u')
 call <SID>HtmlIndentPush('ul')
 call <SID>HtmlIndentPush('var')
+call <SID>HtmlIndentPush('dl')
+call <SID>HtmlIndentPush('dt')
 
 
 " [-- <ELEMENT ? O O ...> --]

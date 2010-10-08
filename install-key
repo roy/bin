@@ -1,6 +1,6 @@
-#!/usr/local/bin/ruby -w
-
+#!/usr/bin/ruby -w
 #!/bin/env ruby -w
+
 # Originally from http://github.com/adamcooke/key-installer/tree/master
 
 module KeyInstaller

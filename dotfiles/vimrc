@@ -167,5 +167,5 @@ colorscheme railscasts
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR> 
 
 autocmd BufRead,BufNewFile Gemfile set filetype=Gemfile 
+autocmd BufRead,BufNewFile *.j set filetype=objj
 au Bufread,BufNewFile *.feature set filetype=cucumber
-

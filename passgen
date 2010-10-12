@@ -1,0 +1,15 @@
+#!/usr/bin/ruby -w
+
+@generator = "vcvcvcvc"
+@alphabet = {
+  "v" => %w(a e i o u),
+  "c" => %w(b c d f g h j k l m n p q r s t v w x z),
+}
+
+password = @generator.each_char.collect do |chr|
+  chars = @alphabet[chr]
+  char = chars[rand(chars.length)]
+  rand(2) == 1 ? char.upcase! : char
+end.join("")
+
+puts password

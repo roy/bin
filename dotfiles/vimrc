@@ -82,7 +82,7 @@ elseif uname == "Darwin"
 
   if has("gui_running")
     set transparency=3
-    set guifont=Monaco:h11
+    set guifont=Meslo\ LG\ M\ DZ:h12
     set fuoptions=maxvert,maxhorz
     :map <D-enter> :set fullscreen! <CR>
     set co=150

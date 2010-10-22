@@ -147,6 +147,11 @@ map ,* :s/^\(.*\)$/\/\* \1 \*\//<CR>:nohlsearch<CR>
 map ,( :s/^\(.*\)$/\(\* \1 \*\)/<CR>:nohlsearch<CR> 
 map ,< :s/^\(.*\)$/<!-- \1 -->/<CR>:nohlsearch<CR> 
 map ,d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR>:nohlsearch<CR> 
+"folding settings
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
 
 "easy switching through splitscreens
 nnoremap <F6> <C-W>w

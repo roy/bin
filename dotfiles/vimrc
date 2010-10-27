@@ -82,7 +82,7 @@ elseif uname == "Darwin"
 
   if has("gui_running")
     set transparency=3
-    set guifont=Meslo\ LG\ M\ DZ:h12
+    set guifont=Monaco:h11
     set fuoptions=maxvert,maxhorz
     :map <D-enter> :set fullscreen! <CR>
     set co=150
@@ -174,3 +174,37 @@ vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'
 autocmd BufRead,BufNewFile Gemfile set filetype=Gemfile 
 autocmd BufRead,BufNewFile *.j set filetype=objj
 au Bufread,BufNewFile *.feature set filetype=cucumber
+
+
+" More useful command-line completion
+set wildmenu
+
+"Auto-completion menu
+set wildmode=list:longest
+
+"http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+" easier window navigation
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+"Helpeful abbreviations
+iab lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+iab llorem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+set linespace=1
+
+"Opens a vertical split and switches over (\v)
+nnoremap <leader>v <C-w>v<C-w>l
+
+"Split windows below the current window.
+set splitbelow   
+

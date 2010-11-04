@@ -1,5 +1,5 @@
 [user]
-  name = Roy van der meij 
+  name = Roy van der Meij
   email = roy@royapps.nl
 
 [alias]
@@ -17,3 +17,5 @@
 	external = git_diff_wrapper
 [push]
 	default = current
+[github]
+	user = roy

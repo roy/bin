@@ -165,7 +165,7 @@ command Sp sp
 "set term=xterm-256color
 set term=xterm
 set t_Co=256
-colorscheme railscasts
+colorscheme kellys
 
 :noremap ,n :NERDTreeToggle<CR>
 :noremap ,r :NERDTreeFind<CR>

@@ -58,7 +58,7 @@ if has("gui_running")
 	hi PmenuSbar	guifg=#2a2b2f	guibg=#2a2b2f	gui=none
 	hi PmenuThumb	guifg=#2a2b2f	guibg=#62acce	gui=none
 	hi PreProc		guifg=#d1d435	guibg=#2a2b2f	gui=none 
-	hi Search		guifg=#2a2b2f	guibg=#e1e0e5	gui=none
+	hi Search			guibg=#5A647E	gui=none
 	hi Special		guifg=#9ab2c8	guibg=#2a2b2f	gui=none
 	hi Statement	guifg=#62acce	guibg=#2a2b2f	gui=bold
 	hi StatusLine 	guifg=#2a2b2f	guibg=#62acce	gui=bold
@@ -66,7 +66,7 @@ if has("gui_running")
 	hi Todo 		guifg=#e1e0e5	guibg=#9d0e15	gui=bold
 	hi Type 		guifg=#e6ac32	guibg=#2a2b2f	gui=none
 	hi Underlined	guifg=#e1e0e5	guibg=#2a2b2f	gui=underline
-	hi Visual		guifg=#2a2b2f	guibg=#e1e0e5	gui=none
+	hi Visual		guibg=#5A647E gui=none
 	hi Wildmenu		guifg=#62acce	guibg=#2a2b2f	gui=bold
 else
 	if &t_Co == 256

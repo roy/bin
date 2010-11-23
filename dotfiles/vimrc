@@ -165,7 +165,8 @@ command Sp sp
 "set term=xterm-256color
 set term=xterm
 set t_Co=256
-colorscheme kellys
+"colorscheme kellys
+colorscheme railscasts
 
 :noremap ,n :NERDTreeToggle<CR>
 :noremap ,r :NERDTreeFind<CR>
@@ -208,3 +209,9 @@ nnoremap <leader>v <C-w>v<C-w>l
 "Split windows below the current window.
 set splitbelow   
 
+" Unbind the cursor keys in insert, normal and visual modes.
+"for prefix in ['i', 'n', 'v']
+"  for key in ['<Up>', '<Down>', '<Left>', '<Right>']
+"    exe prefix . "noremap " . key . " <Nop>"
+"  endfor
+"endfor

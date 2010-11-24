@@ -16,10 +16,10 @@
 
 # Change default escape sequence from C-a to a backtick
 #  escape ``                            # default ^Aa
-  escape "^  "
+#  escape "^  "
 
 # Make the F11 (not F1!) key an alternative screen scape (besides `C-a').
-  bindkey -k F1 command
+#  bindkey -k F1 command
 
 # Do not display the copyright page
   startup_message off                  # default: on

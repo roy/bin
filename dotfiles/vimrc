@@ -210,11 +210,11 @@ nnoremap <leader>v <C-w>v<C-w>l
 set splitbelow   
 
 " Unbind the cursor keys in insert, normal and visual modes.
-for prefix in ['i', 'n', 'v']
-  for key in ['<Up>', '<Down>', '<Left>', '<Right>']
-    exe prefix . "noremap " . key . " <Nop>"
-  endfor
-endfor
+"for prefix in ['i', 'n', 'v']
+"  for key in ['<Up>', '<Down>', '<Left>', '<Right>']
+"    exe prefix . "noremap " . key . " <Nop>"
+"  endfor
+"endfor
 
 "ruby
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete

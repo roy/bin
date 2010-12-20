@@ -110,4 +110,5 @@ highlight Normal                    guifg=#E6E1DC guibg=#1B1B1B
 hi LineNr          guifg=#BCBCBC guibg=#111111
 
 highlight NonText guifg=#BCBCBC
+highlight SpellBad guifg=NONE
 "highlight SpecialKey guifg=#4a4a59

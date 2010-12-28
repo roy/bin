@@ -1,0 +1,5 @@
+#!/usr/bin/ruby
+
+url = "http://" + File.split(`pwd`).last.strip + ".local"
+`open -a "/Applications/Google Chrome.app/" #{url}`
+

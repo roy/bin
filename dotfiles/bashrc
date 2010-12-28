@@ -6,3 +6,7 @@
 test -r /sw/bin/init.sh && . /sw/bin/init.sh
 
 if [[ -s /Users/roy/.rvm/scripts/rvm ]] ; then source /Users/roy/.rvm/scripts/rvm ; fi
+
+#ff(){
+#  open -a /Applications/Firefox.app/ "$1"
+#}

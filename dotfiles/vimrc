@@ -166,7 +166,9 @@ command Sp sp
 set term=xterm
 set t_Co=256
 "colorscheme kellys
-colorscheme railscasts
+"colorscheme railscasts
+"colorscheme pyte
+colorscheme beachcomber
 
 :noremap ,n :NERDTreeToggle<CR>
 :noremap ,r :NERDTreeFind<CR>
@@ -175,21 +177,6 @@ vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'
 autocmd BufRead,BufNewFile Gemfile set filetype=Gemfile 
 autocmd BufRead,BufNewFile *.j set filetype=objj
 au Bufread,BufNewFile *.feature set filetype=cucumber
-
-
-" More useful command-line completion
-set wildmenu
-
-"Auto-completion menu
-set wildmode=list:longest
-
-"http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
-set completeopt=longest,menuone
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " easier window navigation
 nmap <C-h> <C-w>h
@@ -215,9 +202,3 @@ set splitbelow
 "    exe prefix . "noremap " . key . " <Nop>"
 "  endfor
 "endfor
-
-"ruby
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1

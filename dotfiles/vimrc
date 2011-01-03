@@ -202,3 +202,7 @@ set splitbelow
 "    exe prefix . "noremap " . key . " <Nop>"
 "  endfor
 "endfor
+
+" remove scrollbars
+set guioptions-=r
+set guioptions-=L

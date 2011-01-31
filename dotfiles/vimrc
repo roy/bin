@@ -206,7 +206,3 @@ set splitbelow
 " remove scrollbars
 set guioptions-=r
 set guioptions-=L
-
-"let s:tree_markup_reg = '^[ `|]*[\-+~]'
-let s:tree_markup_reg = '^[ `|]*[\~-+]'
-

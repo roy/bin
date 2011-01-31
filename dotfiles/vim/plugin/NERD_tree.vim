@@ -147,7 +147,7 @@ endif
 let s:NERDTreeBufName = 'NERD_tree_'
 
 let s:tree_wid = 2
-let s:tree_markup_reg = '^[ `|▼▶]*[\-+~ ]*'
+let s:tree_markup_reg = '^[ `|▾▸]*[\-+~ ]*'
 let s:tree_up_dir_line = '.. (up a dir)'
 
 "the number to add to the nerd tree buffer name to make the buf name unique
@@ -1322,9 +1322,9 @@ function! s:TreeFileNode._renderToString(depth, drawText, vertMap, isLastChild)
 
         if self.path.isDirectory
             if self.isOpen
-                let treeParts = treeParts . '▼ '
+                let treeParts = treeParts . '▾ '
             else
-                let treeParts = treeParts . '▶ '
+                let treeParts = treeParts . '▸ '
             endif
         else
             let treeParts = treeParts . ''

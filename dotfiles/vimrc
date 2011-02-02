@@ -206,3 +206,7 @@ set splitbelow
 " remove scrollbars
 set guioptions-=r
 set guioptions-=L
+
+" ConqueTerm
+:noremap ,b :ConqueTerm bash<CR>
+:noremap ,l :ConqueTerm tail -f log/development.log<CR>

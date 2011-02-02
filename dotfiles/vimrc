@@ -209,4 +209,4 @@ set guioptions-=L
 
 " ConqueTerm
 :noremap ,b :ConqueTermSplit bash<CR>
-:noremap ,l :ConqueTerm tail -f log/development.log<CR>
+:noremap ,l :ConqueTermSplit tail -f log/development.log<CR>

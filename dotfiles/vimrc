@@ -210,8 +210,10 @@ set guioptions-=L
 " ConqueTerm
 let g:ConqueTerm_TERM = 'vt100'
 let g:ConqueTerm_CloseOnEnd = 0 "Close buffer when program exits
-let g:ConqueTerm_InsertOnEnter = 0 "Insert mode when entering buffer
 let g:ConqueTerm_ReadUnfocused = 1 "Keep updating terminal buffer
 
 :noremap ,b :ConqueTermSplit bash<CR>
 :noremap ,l :ConqueTermSplit tail -f log/development.log<CR>
+
+" ejs
+au BufNewFile,BufRead *.ejs set filetype=html.js

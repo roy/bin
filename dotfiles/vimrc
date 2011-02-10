@@ -165,10 +165,10 @@ command Sp sp
 "set term=xterm-256color
 set term=xterm
 set t_Co=256
-"colorscheme kellys
+colorscheme kellys
 "colorscheme railscasts
 "colorscheme pyte
-colorscheme beachcomber
+"colorscheme beachcomber
 
 :noremap ,n :NERDTreeToggle<CR>
 :noremap ,r :NERDTreeFind<CR>

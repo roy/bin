@@ -118,7 +118,7 @@ elseif uname == "Darwin"
     set listchars=tab:▸\ ,eol:¬ 
 
     " map voor zoeken
-    nmap <leader>a :Ack 
+    " nmap <leader>a :Ack 
 
     " zoeken naar definities
     nmap <Leader>m /^ *def 
@@ -165,8 +165,8 @@ command Sp sp
 "set term=xterm-256color
 set term=xterm
 set t_Co=256
-colorscheme kellys
-"colorscheme railscasts
+""colorscheme kellys
+colorscheme railscasts
 "colorscheme pyte
 "colorscheme beachcomber
 
@@ -183,10 +183,6 @@ nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
-
-"Helpeful abbreviations
-iab lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-iab llorem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 
 set linespace=1
 
@@ -217,3 +213,26 @@ let g:ConqueTerm_ReadUnfocused = 1 "Keep updating terminal buffer
 
 " ejs
 au BufNewFile,BufRead *.ejs set filetype=html.js
+
+map <Leader>m :Rmodel 
+map <Leader>v :Rview 
+map <Leader>c :Rcontroller 
+map <Leader>u :Runittest 
+map <Leader>vm :RVmodel 
+map <Leader>vv :RVview 
+map <Leader>vc :RVcontroller 
+map <Leader>vu :RVunittest 
+
+map <Leader>h :nohl<CR>
+
+" Fuzzy finder: ignore stuff that can't be opened, and generated files
+let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
+
+" Directories for swp files
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+
+" easy cd into path
+map ,cd :cd %:p:h<CR>
+
+:silent exe "g:flog_enable"

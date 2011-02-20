@@ -7,4 +7,5 @@ db/*.sqlite3
 db/*.sql
 public/assets/*
 dotfiles/vim/.netrwhist
-ditfiles/vim/.VimballRecord
+dotfiles/vim/.VimballRecord
+dotfiles/vim/backup/*

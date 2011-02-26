@@ -169,6 +169,7 @@ set t_Co=256
 colorscheme railscasts
 "colorscheme pyte
 "colorscheme beachcomber
+""colorscheme Mustang
 
 :noremap ,n :NERDTreeToggle<CR>
 :noremap ,r :NERDTreeFind<CR>

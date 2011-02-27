@@ -80,8 +80,11 @@ highlight rubyInstanceVariable      guifg=#D0D0FF ctermfg=189
 highlight rubyInterpolation         guifg=#519F50 ctermfg=107
 highlight rubyLocalVariableOrMethod guifg=#D0D0FF ctermfg=189
 highlight rubyPredefinedConstant    guifg=#DA4939 ctermfg=167
-highlight rubyPseudoVariable        guifg=#FFC66D ctermfg=221
+highlight rubyPseudoVariable        guifg=#d0d0ff ctermfg=221
 highlight rubyStringDelimiter       guifg=#A5C261 ctermfg=143
+highlight rubyRailsFilterMethod     guifg=#DA4939 ctermfg=173
+highlight rubyRailsControllerMethod guifg=#DA4939 ctermfg=173
+
 hi rubyRegexpDelimiter         guifg=#FF8000      guibg=NONE      gui=NONE      ctermfg=brown          ctermbg=NONE      cterm=NONE
 hi rubyControl                 guifg=#CC7833      guibg=NONE      gui=NONE      ctermfg=blue           ctermbg=NONE      cterm=NONE  "and break, etc
 hi rubyRegexp                  guifg=#A5C261      guibg=NONE      gui=NONE      ctermfg=brown          ctermbg=NONE      cterm=NONE
@@ -106,8 +109,9 @@ hi PmenuSel                      guibg=#808080
 hi PmenuSbar                     guibg=#080808
 hi PmenuThumb      guifg=#66D9EF
 
-highlight Normal                    guifg=#E6E1DC guibg=#1B1B1B
+highlight Normal                    guifg=#E6E1DC guibg=#262626
 hi LineNr          guifg=#BCBCBC guibg=#111111
+hi LineNr          guifg=#666666 guibg=#1c1c1c
 
 highlight NonText guifg=#BCBCBC
 highlight SpellBad guifg=NONE

@@ -81,8 +81,9 @@ if uname == "Linux"
 elseif uname == "Darwin"
 
   if has("gui_running")
-    set transparency=3
+    set transparency=1
     set guifont=Monaco:h11
+    set guifont=Meslo\ LG\ M\ DZ:h11
     set fuoptions=maxvert,maxhorz
     :map <D-enter> :set fullscreen! <CR>
     set co=150
@@ -237,3 +238,5 @@ set directory=~/.vim/backup
 map ,cd :cd %:p:h<CR>
 
 :silent exe "g:flog_enable"
+
+let g:SimpleJsIndenter_BriefMode = 1

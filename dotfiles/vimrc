@@ -240,3 +240,5 @@ map ,cd :cd %:p:h<CR>
 :silent exe "g:flog_enable"
 
 let g:SimpleJsIndenter_BriefMode = 1
+
+set statusline=%t%(\ [%n%M]%)%(\ %H%R%W%)\ %(%c-%v,\ %l\ of\ %L,\ (%o)\ %P\ 0x%B\ (%b)%)

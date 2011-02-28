@@ -157,6 +157,7 @@ set foldlevel=1         "this is just what i use
 "easy switching through splitscreens
 nnoremap <F6> <C-W>w
 nnoremap <S-F6> <C-W>W
+
 command Q q
 command W w
 command Wq wq
@@ -186,7 +187,7 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
-set linespace=1
+"set linespace=1
 
 "Opens a vertical split and switches over (\v)
 nnoremap <leader>v <C-w>v<C-w>l

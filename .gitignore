@@ -8,3 +8,4 @@ db/*.sql
 public/assets/*
 dotfiles/vim/.netrwhist
 dotfiles/vim/.VimballRecord
+dotfiles/vim/backup/*

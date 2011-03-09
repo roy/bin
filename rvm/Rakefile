@@ -1,0 +1,162 @@
+MYPROJECT_RUBIES = {
+  #'ruby-1.8.6-p388'   => {:alias => 'myprj186', :odbc => '0.99991'},
+  #'ruby-1.8.7-p299'   => {:alias => 'myprj187', :odbc => '0.99991'},
+  #'ruby-1.9.1-p378'   => {:alias => 'myprj191', :odbc => '0.99991'},
+  #'ruby-1.9.2-head'   => {:alias => 'myprj192', :odbc => '0.99992pre3'},
+  'ree-1.8.7-2010.02' => {:alias => 'myprjree', :odbc => '0.99991'},
+}
+
+namespace :rvm do
+
+  task :setup do
+    unless @rvm_setup
+      rvm_lib_path = "#{`echo $rvm_path`.strip}/lib"
+      $LOAD_PATH.unshift(rvm_lib_path) unless $LOAD_PATH.include?(rvm_lib_path)
+      require 'rvm'
+      require 'tmpdir'
+      @rvm_setup = true
+    end
+  end
+
+  namespace :install do
+
+    task :all => [:setup,:rubies,:odbc,:gems]
+
+    task :rubies => :setup do
+      installed_rubies = RVM.list_strings
+      MYPROJECT_RUBIES.keys.each do |rubie|
+        if installed_rubies.include?(rubie)
+          puts "info: Rubie #{rubie} already installed."
+        else
+          with_my_environment_vars do
+            good_msg = "info: Rubie #{rubie} installed."
+            bad_msg = "Failed #{rubie} install! Check RVM logs here: #{RVM.path}/log/#{rubie}"
+            puts "info: Rubie #{rubie} installation inprogress. This could take awhile..."
+            RVM.install(rubie,rvm_install_options) ? puts(good_msg) : abort(bad_msg)
+          end
+        end
+        RVM.alias_create MYPROJECT_RUBIES[rubie][:alias], "#{rubie}@myproject"
+      end
+    end
+
+    task :odbc => :setup do
+      rvm_each_rubie do
+        odbc = "ruby-odbc-#{myproject_current_rubie_info[:odbc]}"
+        RVM.chdir(Dir.tmpdir) do
+          RVM.run "rm -rf #{odbc}*"
+          puts "info: RubyODBC downloading #{odbc}..."
+          RVM.run "curl -O http://www.ch-werner.de/rubyodbc/#{odbc}.tar.gz"
+          puts "info: RubyODBC extracting clean work directory..."
+          RVM.run "tar -xf #{odbc}.tar.gz"
+          RVM.chdir("#{odbc}/ext") do
+            puts "info: RubyODBC configuring..."
+            RVM.ruby 'extconf.rb', "--with-odbc-dir=#{rvm_odbc_dir}"
+            puts "info: RubyODBC make and installing for #{rvm_current_name}..."
+            RVM.run "make && make install"
+          end
+        end
+      end
+    end
+
+    task :gems => :setup do
+      puts "info: Installing our app gems."
+      rvm_each_rubie do
+        myproject_gem_specs.each { |spec| rvm_install_gem(spec) }
+      end
+    end
+
+  end
+
+  task :remove => :setup do
+    myproject_rubies.each { |rubie| RVM.remove(rubie) }
+  end
+
+end
+
+
+def myproject_rubies
+  #MYPROJECT_RUBIES.keys.map{ |rubie| "#{rubie}@myproject" }
+  MYPROJECT_RUBIES.keys.map{ |rubie| "#{rubie}" }
+end
+
+def myproject_current_rubie_info
+  MYPROJECT_RUBIES[rvm_current_rubie_name]
+end
+
+def myproject_gem_specs
+  [
+    ['rails','2.3.8'],
+    ['activerecord-sqlserver-adapter','2.3.8'],
+    ['erubis','2.6.6'],
+    ['haml','3.0.13'],
+    ['mocha','0.9.8'],
+  ]
+end
+
+def rvm_each_rubie
+  myproject_rubies.each do |rubie|
+    RVM.use(rubie)
+    yield
+  end
+ensure
+  RVM.reset_current!
+end
+
+def rvm_current_rubie_name
+  rvm_current_name.sub('@myproject','')
+end
+
+def rvm_current_name
+  RVM.current.expanded_name
+end
+
+def rvm_gem_available?(spec)
+  gem, version = spec
+  RVM.ruby_eval("require 'rubygems' ; print Gem.available?('#{gem}','#{version}')").stdout == 'true'
+end
+
+def rvm_install_gem(spec)
+  gem, version = spec
+  if rvm_gem_available?(spec)
+    puts "info: Gem #{gem}-#{version} already installed in #{rvm_current_name}."
+  else
+    puts "info: Installing gem #{gem}-#{version} in #{rvm_current_name}..."
+    puts RVM.perform_set_operation(:gem,'install',gem,'-v',version).stdout
+  end
+end
+
+def for_macports?
+  `uname`.strip == 'Darwin' && `which port`.include?("port")
+end
+
+def rvm_install_options
+  {}
+end
+
+def my_environment_vars
+  if for_macports?
+    {'CC' => '/usr/bin/gcc-4.2',
+     'CFLAGS' => '-O2 -arch x86_64',
+     'LDFLAGS' => '-L/opt/local/lib -arch x86_64',
+     'CPPFLAGS' => '-I/opt/local/include'}
+  else
+    {}
+  end
+end
+
+def rvm_odbc_dir
+  for_macports? ? '/opt/local' : '/usr/local'
+end
+
+def set_environment_vars(vars)
+  vars.each { |k,v| ENV[k] = v }
+end
+
+def with_my_environment_vars
+  my_vars = my_environment_vars
+  current_vars = my_vars.inject({}) { |cvars,kv| k,v = kv ; cvars[k] = ENV[k] ; cvars }
+  set_environment_vars(my_vars)
+  yield
+ensure
+  set_environment_vars(current_vars)
+end

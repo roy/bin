@@ -2,6 +2,9 @@
 . ~/bin/dotfiles/bash/config
 . ~/bin/dotfiles/bash/aliases
 
+export LC_ALL=en_US.UTF-8
+export SYBASE=/usr/local
+
 # to use the fink hierarchy if installed
 test -r /sw/bin/init.sh && . /sw/bin/init.sh
 

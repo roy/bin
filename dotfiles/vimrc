@@ -131,6 +131,7 @@ elseif uname == "Darwin"
       silent! exec '!afplay ~/.vim/support/carriage_return.mp3 &'
     endfunction
     autocmd CursorMovedI * call PlayTick()
+    autocmd CursorMoved * call PlayTick()
     autocmd InsertLeave * call PlayCarriageReturn()
 
     

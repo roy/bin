@@ -124,15 +124,16 @@ elseif uname == "Darwin"
     " zoeken naar definities
     nmap <Leader>m /^ *def 
 
-    function! PlayTick()
-      silent! exec '!afplay ~/.vim/support/9098__ddohler__Typewriter.wav &'
-    endfunction
-    function! PlayCarriageReturn()
-      silent! exec '!afplay ~/.vim/support/carriage_return.mp3 &'
-    endfunction
-    autocmd CursorMovedI * call PlayTick()
-    autocmd CursorMoved * call PlayTick()
-    autocmd InsertLeave * call PlayCarriageReturn()
+    " Annoy your colleagues :-) 
+    "function! PlayTick()
+    "  silent! exec '!afplay ~/.vim/support/9098__ddohler__Typewriter.wav &'
+    "endfunction
+    "function! PlayCarriageReturn()
+    "  silent! exec '!afplay ~/.vim/support/carriage_return.mp3 &'
+    "endfunction
+    "autocmd CursorMovedI * call PlayTick()
+    "autocmd CursorMoved * call PlayTick()
+    "autocmd InsertLeave * call PlayCarriageReturn()
 
     
   endif

@@ -1,21 +1,24 @@
+require 'irb/completion'
+require 'irb/ext/save-history'
+
 class Object
   def local_methods
     (methods - Object.instance_methods).sort
   end
 end
- 
+
 # have colorized output
-#require 'rubygems'
-#require 'wirble'
-##require 'ap'
-#Wirble.init
-#Wirble.colorize
-#
-#IRB::Irb.class_eval do
-#  def output_value
-#    ap @context.last_value
-#  end
-#end
+require 'rubygems'
+require 'wirble'
+#require 'ap'
+Wirble.init
+Wirble.colorize
+
+IRB::Irb.class_eval do
+  def output_value
+    ap @context.last_value
+  end
+end
 # gem install awesome_print
 
 #require 'hirb'

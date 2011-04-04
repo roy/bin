@@ -193,6 +193,7 @@ vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'
 autocmd BufRead,BufNewFile Gemfile set filetype=Gemfile 
 autocmd BufRead,BufNewFile *.j set filetype=objj
 au Bufread,BufNewFile *.feature set filetype=cucumber
+au Bufread,BufNewFile *.ru set filetype=ruby
 
 " easier window navigation
 nmap <C-h> <C-w>h

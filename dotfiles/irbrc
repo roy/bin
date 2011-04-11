@@ -14,11 +14,11 @@ require 'wirble'
 Wirble.init
 Wirble.colorize
 
-IRB::Irb.class_eval do
-  def output_value
-    ap @context.last_value
-  end
-end
+#IRB::Irb.class_eval do
+#  def output_value
+#    ap @context.last_value
+#  end
+#end
 # gem install awesome_print
 
 #require 'hirb'

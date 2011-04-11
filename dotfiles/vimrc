@@ -1,3 +1,8 @@
+" .vimrcr File"
+" Maintained by: Roy van der Meij
+" roy@royapps.nl
+"
+
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -5,139 +10,58 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("vms")
-  set nobackup    " do not keep a backup file, use versions instead
-else
-  "set backup   " keep a backup file
-endif
+" Enable filetypes
+filetype on
+filetype plugin indent on
+syntax on
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
-
-" Don't use Ex mode, use Q for formatting
-" map Q gq
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-  " Enable file type detection.
-  filetype plugin indent on
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-  
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-
-  augroup END
-else
-  set autoindent    " always set autoindenting on
-endif " has("autocmd")
-
+set autoindent    " always set autoindenting on
 set history=50    " keep 50 lines of command line history
-set ruler   " show the cursor position all the time
-set showcmd   " display incomplete commands
-set incsearch   " do incremental searching
-set hlsearch
+set ruler         " show the cursor position all the time
+set showcmd       " display incomplete commands
 set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set mouse=a
-set nocompatible
+
+" show line numbers
 set number
-syntax on
 
-" operating system specific settings
-let uname = substitute(system("uname"),"\n","","g")
-" ubuntu stuff"
-if uname == "Linux"
-  map <m-1> :tabn 1<CR>
-  map <m-2> :tabn 2<CR>
-  map <m-3> :tabn 3<CR>
-  map <m-4> :tabn 4<CR>
-  map <m-5> :tabn 5<CR>
-  map <m-6> :tabn 6<CR>
-  map <m-7> :tabn 7<CR>
-  map <m-8> :tabn 8<CR>
-  map <m-9> :tabn 9<CR>
+" search stuff
+set incsearch     " do incremental searching
+set hlsearch      " highlight search
+set ignorecase    " case insensitive search
+set smartcase
 
-  " Textmate indent keybindings
-  nmap <m-[> <<
-  nmap <m-]> >>
-  vmap <m-[> <gv
-  vmap <m-]> >gv
-  
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬ 
 
-"OSX Stuff
-elseif uname == "Darwin"
+"Ever notice a slight lag after typing the leader key + command? This lowers the timeout.
+set timeoutlen=500
 
-  if has("gui_running")
-    set transparency=1
-    set guifont=Monaco:h11
-    set guifont=Meslo\ LG\ M\ DZ:h11
-    set fuoptions=maxvert,maxhorz
-    :map <D-enter> :set fullscreen! <CR>
-    set co=150
-    set lines=55
-    set go-=T
+" Directories for swp files
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
 
-    "tab switching
-    map <D-1> :tabn 1<CR>
-    map <D-2> :tabn 2<CR>
-    map <D-3> :tabn 3<CR>
-    map <D-4> :tabn 4<CR>
-    map <D-5> :tabn 5<CR>
-    map <D-6> :tabn 6<CR>
-    map <D-7> :tabn 7<CR>
-    map <D-8> :tabn 8<CR>
-    map <D-9> :tabn 9<CR>
+" fancy status line
+set statusline=%t%(\ [%n%M]%)%(\ %H%R%W%)\ %(%c-%v,\ %l\ of\ %L,\ (%o)\ %P\ 0x%B\ (%b)%)
 
-    map! <D-1> <C-O>:tabn 1<CR>
-    map! <D-2> <C-O>:tabn 2<CR>
-    map! <D-3> <C-O>:tabn 3<CR>
-    map! <D-4> <C-O>:tabn 4<CR>
-    map! <D-5> <C-O>:tabn 5<CR>
-    map! <D-6> <C-O>:tabn 6<CR>
-    map! <D-7> <C-O>:tabn 7<CR>
-    map! <D-8> <C-O>:tabn 8<CR>
-    map! <D-9> <C-O>:tabn 9<CR>
+" Mouse settings
+set mouse=a     "enable mouse
+set mousehide   "hide mouse when typing
 
-    " Textmate indent keybindings
-    map <D-[> <<
-    map <D-]> >>
+" For all text files set 'textwidth' to 78 characters.
+" autocmd FileType text setlocal textwidth=78
 
-    " Use the same symbols as TextMate for tabstops and EOLs
-    set listchars=tab:▸\ ,eol:¬ 
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g`\"" |
+  \ endif
 
-    " map voor zoeken
-    " nmap <leader>a :Ack 
-
-    " zoeken naar definities
-    nmap <Leader>m /^ *def 
-
-    " Annoy your colleagues :-) 
-    "function! PlayTick()
-    "  silent! exec '!afplay ~/.vim/support/9098__ddohler__Typewriter.wav &'
-    "endfunction
-    "function! PlayCarriageReturn()
-    "  silent! exec '!afplay ~/.vim/support/carriage_return.mp3 &'
-    "endfunction
-    "autocmd CursorMovedI * call PlayTick()
-    "autocmd CursorMoved * call PlayTick()
-    "autocmd InsertLeave * call PlayCarriageReturn()
-
-    
-  endif
-endif
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
@@ -171,17 +95,18 @@ set foldlevel=1         "this is just what i use
 nnoremap <F6> <C-W>w
 nnoremap <S-F6> <C-W>W
 
-command Q q
-command W w
-command Wq wq
-command Vsp vsp
-command Sp sp
+command! Q q
+command! W w
+command! Wq wq
+command! Vsp vsp
+command! Sp sp
 
 "set term=xterm-256color
-set term=xterm
+"set term=xterm
 set t_Co=256
 "colorscheme kellys
 colorscheme railscasts
+"colorscheme twilight
 "colorscheme pyte
 "colorscheme beachcomber
 ""colorscheme Mustang
@@ -190,9 +115,12 @@ colorscheme railscasts
 :noremap ,r :NERDTreeFind<CR>
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR> 
 
-autocmd BufRead,BufNewFile Gemfile set filetype=Gemfile 
-autocmd BufRead,BufNewFile *.j set filetype=objj
+" add some filetype mappings
+au BufRead,BufNewFile Gemfile set filetype=Gemfile 
+au BufRead,BufNewFile *.j set filetype=objj
 au Bufread,BufNewFile *.feature set filetype=cucumber
+au Bufread,BufNewFile *.ru set filetype=ruby
+au BufNewFile,BufRead *.ejs set filetype=html.js
 
 " easier window navigation
 nmap <C-h> <C-w>h
@@ -202,18 +130,17 @@ nmap <C-l> <C-w>l
 
 "set linespace=1
 
-"Opens a vertical split and switches over (\v)
-nnoremap <leader>v <C-w>v<C-w>l
+" Split settings
+nnoremap <leader>v <C-w>v
+nnoremap <leader>s <C-w>s
+set splitbelow   "Split windows below the current window.
 
-"Split windows below the current window.
-set splitbelow   
-
-" Unbind the cursor keys in insert, normal and visual modes.
-"for prefix in ['i', 'n', 'v']
-"  for key in ['<Up>', '<Down>', '<Left>', '<Right>']
-"    exe prefix . "noremap " . key . " <Nop>"
-"  endfor
-"endfor
+" Unbind the cursor keys in normal and visual modes.
+" for prefix in ['n', 'v']
+"   for key in ['<Up>', '<Down>', '<Left>', '<Right>']
+"     exe prefix . "noremap " . key . " <Nop>"
+"   endfor
+" endfor
 
 " remove scrollbars
 set guioptions-=r
@@ -227,13 +154,11 @@ let g:ConqueTerm_ReadUnfocused = 1 "Keep updating terminal buffer
 :noremap ,b :ConqueTermSplit bash<CR>
 :noremap ,l :ConqueTermSplit tail -f log/development.log<CR>
 
-" ejs
-au BufNewFile,BufRead *.ejs set filetype=html.js
 
-map <Leader>m :Rmodel 
-map <Leader>v :Rview 
-map <Leader>c :Rcontroller 
-map <Leader>u :Runittest 
+map <Leader>rm :Rmodel 
+map <Leader>rv :Rview 
+map <Leader>rc :Rcontroller 
+map <Leader>ru :Runittest 
 map <Leader>vm :RVmodel 
 map <Leader>vv :RVview 
 map <Leader>vc :RVcontroller 
@@ -244,14 +169,71 @@ map <Leader>h :nohl<CR>
 " Fuzzy finder: ignore stuff that can't be opened, and generated files
 let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
 
-" Directories for swp files
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
-
 " easy cd into path
 map ,cd :cd %:p:h<CR>
 
 let g:SimpleJsIndenter_BriefMode = 1
 
-set statusline=%t%(\ [%n%M]%)%(\ %H%R%W%)\ %(%c-%v,\ %l\ of\ %L,\ (%o)\ %P\ 0x%B\ (%b)%)
+"Shortcut for editing  vimrc file in a new tab
+nmap ,ev :tabedit $MYVIMRC<cr>
 
+" operating system specific settings
+let uname = substitute(system("uname"),"\n","","g")
+if uname == "Linux" "ubuntu stuff
+
+  map <m-1> :tabn 1<CR>
+  map <m-2> :tabn 2<CR>
+  map <m-3> :tabn 3<CR>
+  map <m-4> :tabn 4<CR>
+  map <m-5> :tabn 5<CR>
+  map <m-6> :tabn 6<CR>
+  map <m-7> :tabn 7<CR>
+  map <m-8> :tabn 8<CR>
+  map <m-9> :tabn 9<CR>
+
+elseif uname == "Darwin" "OSX Stuff
+
+  if has("gui_running")
+    set transparency=1
+    set guifont=Monaco:h11
+    set guifont=Meslo\ LG\ M\ DZ:h11
+    set fuoptions=maxvert,maxhorz
+    :map <D-enter> :set fullscreen! <CR>
+    set co=150
+    set lines=55
+    set go-=T
+
+    "tab switching in normal mode
+    map <D-1> :tabn 1<CR>
+    map <D-2> :tabn 2<CR>
+    map <D-3> :tabn 3<CR>
+    map <D-4> :tabn 4<CR>
+    map <D-5> :tabn 5<CR>
+    map <D-6> :tabn 6<CR>
+    map <D-7> :tabn 7<CR>
+    map <D-8> :tabn 8<CR>
+    map <D-9> :tabn 9<CR>
+
+    "tab switching in insert mode
+    map! <D-1> <C-O>:tabn 1<CR>
+    map! <D-2> <C-O>:tabn 2<CR>
+    map! <D-3> <C-O>:tabn 3<CR>
+    map! <D-4> <C-O>:tabn 4<CR>
+    map! <D-5> <C-O>:tabn 5<CR>
+    map! <D-6> <C-O>:tabn 6<CR>
+    map! <D-7> <C-O>:tabn 7<CR>
+    map! <D-8> <C-O>:tabn 8<CR>
+    map! <D-9> <C-O>:tabn 9<CR>
+
+    " Annoy your colleagues :-) 
+    "function! PlayTick()
+    "  silent! exec '!afplay ~/.vim/support/9098__ddohler__Typewriter.wav &'
+    "endfunction
+    "function! PlayCarriageReturn()
+    "  silent! exec '!afplay ~/.vim/support/carriage_return.mp3 &'
+    "endfunction
+    "autocmd CursorMovedI * call PlayTick()
+    "autocmd CursorMoved * call PlayTick()
+    "autocmd InsertLeave * call PlayCarriageReturn()
+  endif
+endif

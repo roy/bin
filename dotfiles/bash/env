@@ -50,6 +50,7 @@ export PATH="/opt/ruby-enterprise-1.8.7-2010.01/bin:$PATH"
 export PATH="$ORACLE_HOME:$PATH"
 export PATH="/Users/roy/bin:$PATH"
 export PATH="/Library/PostgreSQL/9.0/bin:$PATH"
+export PATH="/Users/roy/Gems/restartapp/bin:$PATH"
 
 # testing cucumber in rails
 export AUTOFEATURE=true

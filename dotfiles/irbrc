@@ -10,7 +10,7 @@ end
 # have colorized output
 require 'rubygems'
 require 'wirble'
-#require 'ap'
+require 'ap'
 Wirble.init
 Wirble.colorize
 

@@ -111,6 +111,10 @@ set t_Co=256
 "colorscheme beachcomber
 ""colorscheme Mustang
 colorscheme solarized
+if !has('gui_running')
+  colorscheme railscasts
+endif
+
 
 :noremap ,n :NERDTreeToggle<CR>
 :noremap ,r :NERDTreeFind<CR>

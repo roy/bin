@@ -105,11 +105,12 @@ command! Sp sp
 "set term=xterm
 set t_Co=256
 "colorscheme kellys
-colorscheme railscasts
+"colorscheme railscasts
 "colorscheme twilight
 "colorscheme pyte
 "colorscheme beachcomber
 ""colorscheme Mustang
+colorscheme solarized
 
 :noremap ,n :NERDTreeToggle<CR>
 :noremap ,r :NERDTreeFind<CR>

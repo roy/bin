@@ -109,10 +109,36 @@ hi PmenuSel                      guibg=#808080
 hi PmenuSbar                     guibg=#080808
 hi PmenuThumb      guifg=#66D9EF
 
-highlight Normal                    guifg=#E6E1DC guibg=#262626
+highlight Normal                    guifg=#E6E1DC guibg=#191919
 hi LineNr          guifg=#BCBCBC guibg=#111111
 hi LineNr          guifg=#666666 guibg=#1c1c1c
 
 highlight NonText guifg=#BCBCBC
 highlight SpellBad guifg=NONE
+
+let s:grey_blue = '#8a9597'
+let s:light_grey_blue = '#a0a8b0'
+let s:dark_grey_blue = '#34383c'
+let s:mid_grey_blue = '#64686c'
+let s:beige = '#ceb67f'
+let s:light_orange = '#ebc471'
+let s:yellow = '#e3d796'
+let s:violet = '#a999ac'
+let s:green = '#a2a96f'
+let s:lightgreen = '#c2c98f'
+let s:red = '#d08356'
+let s:cyan = '#74dad9'
+let s:darkgrey = '#1a1a1a'
+let s:grey = '#303030'
+let s:lightgrey = '#605958'
+let s:white = '#fffedc'
+
+exe 'hi StatusLine     guifg='.s:white             .' guibg='.s:grey            .' gui=italic,underline'
+exe 'hi StatusLineNC   guifg='.s:lightgrey         .' guibg='.s:grey            .' gui=italic,underline'
+exe 'hi LineNr         guifg='.s:beige     .' guibg='.s:grey          .' gui=none'
+exe 'hi StatusLine     guifg='.s:white             .' guibg='.s:grey            .' gui=italic,underline'
+exe 'hi StatusLineNC   guifg='.s:lightgrey         .' guibg='.s:grey            .' gui=italic,underline'
+exe 'hi VertSplit      guifg='.s:grey              .' guibg='.s:white           .' gui=none'
+
+
 "highlight SpecialKey guifg=#4a4a59

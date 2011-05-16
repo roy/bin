@@ -10,6 +10,8 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+call pathogen#runtime_append_all_bundles()
+
 " Enable filetypes
 filetype on
 filetype plugin indent on
@@ -181,6 +183,7 @@ let g:SimpleJsIndenter_BriefMode = 1
 
 "Shortcut for editing  vimrc file in a new tab
 nmap ,ev :tabedit $MYVIMRC<cr>
+
 
 " operating system specific settings
 let uname = substitute(system("uname"),"\n","","g")

@@ -26,12 +26,18 @@ alias fs='du -h -d 1 $1'
 #export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH" 
 
 #aws setup
-export JAVA_HOME=/usr
-export EC2_HOME=/Users/roy/Development/aws/tools
-export PATH=$PATH:$EC2_HOME/bin 
-export EC2_PRIVATE_KEY=/Users/roy/Development/certificates/amazon/pk-FJJSDNYGPNRIPR36SGLQUJHIJ3PDM7DG.pem 
-export EC2_CERT=/Users/roy/Development/certificates/amazon/cert-FJJSDNYGPNRIPR36SGLQUJHIJ3PDM7DG.pem
-export EC2_URL="https://eu-west-1.ec2.amazonaws.com"
+#export JAVA_HOME=/usr
+#export EC2_HOME=/Users/roy/Development/aws/tools
+#export PATH=$PATH:$EC2_HOME/bin 
+#export EC2_PRIVATE_KEY=/Users/roy/Development/certificates/amazon/pk-FJJSDNYGPNRIPR36SGLQUJHIJ3PDM7DG.pem 
+#export EC2_CERT=/Users/roy/Development/certificates/amazon/cert-FJJSDNYGPNRIPR36SGLQUJHIJ3PDM7DG.pem
+#export EC2_URL="https://eu-west-1.ec2.amazonaws.com"
+
+export EC2_HOME=~/.ec2
+export PATH=$PATH:$EC2_HOME/bin
+export EC2_PRIVATE_KEY=~/.ec2/pk-SB2ZQIRV53MN3C3B6NHHCLKOQCO424O4.pem
+export EC2_CERT=~/.ec2/cert-SB2ZQIRV53MN3C3B6NHHCLKOQCO424O4.pem
+export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
 
 #export PATH="/usr/local/oracle/instantclient_10_2:$PATH"
 

@@ -45,7 +45,8 @@ BMAGENTA='\e[45m'
 # Update the command prompt to be <user>:<current_directory>(git_branch) >
 # Note that the git branch is given a special color
 #PS1="\n\u:\w \[$EBLACK\]\$(parse_git_branch)\[$NO_COLOR\] \n→ "
-PS1="\[$GREEN\]\n\u@\h\[$NO_COLOR\]:\[$BLUE\]\w \[$RED\]\$(parse_git_branch)\[$NO_COLOR\] \n$ "
+#PS1="\[$GREEN\]\n\u@\h\[$NO_COLOR\]:\[$BLUE\]\w \[$RED\]\$(parse_git_branch)\[$NO_COLOR\] \n\$(~/.rvm/bin/rvm-prompt v g)$ "
+PS1="\[$GREEN\]\n\u@\h\[$NO_COLOR\]:\[$BLUE\]\w\$(ps1_git)\[$GREEN\]\$(ps1_rvm)\n\[$NO_COLOR\]$ "
 
 #PS1="\[$BLUE\]\w\[$RED\]\$(parse_git_branch)\n\[$GREEN\]\u@\h\[$WHITE\]$ "
 	

@@ -1,0 +1,20 @@
+#!/usr/bin/ruby -w
+
+require 'benchmark'
+
+if ARGV[0] && ARGV[1]
+  site = ARGV.first
+  how_many = ARGV[1].to_i
+else
+  puts "usage: perftest google.nl 10"
+  exit
+end
+
+realtime = Benchmark.realtime do
+  how_many.times do |x|
+    system("curl -o /dev/null -s #{site}")
+  end
+end
+
+msg = "processed in %.4f seconds" % realtime
+puts msg

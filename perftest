@@ -22,5 +22,5 @@ end
 
 pbar.finish
 
-msg = "processed in %.4f seconds" % realtime
+msg = "processed in %.4f seconds avg: %.4f" % [realtime, realtime / how_many]
 puts msg

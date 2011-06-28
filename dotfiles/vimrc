@@ -111,13 +111,13 @@ set t_Co=256
 "colorscheme twilight
 "colorscheme pyte
 "colorscheme beachcomber
-""colorscheme Mustang
+"colorscheme Mustang
+"colorscheme molokai
 colorscheme solarized
 if !has('gui_running')
   colorscheme railscasts
 endif
 
-colorscheme molokai
 
 
 :noremap ,n :NERDTreeToggle<CR>

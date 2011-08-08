@@ -1,9 +1,12 @@
-" Language:    Colored CSS Color Preview
-" Author: Niklas Hofer <niklas+vim@lanpartei.de>
-" Maintainer: Max Vasiliev <vim@skammer.name>
+" Language:     Colored CSS Color Preview
+" Author:       Max Vasiliev <vim@skammer.name>
 " Last Change:  2010 Jul 3
-" Licence:     No Warranties. WTFPL. But please tell me!
-" Version:     0.7
+" Licence:      No Warranties. WTFPL. But please tell me!
+" Version:      0.7.1
+
+function! s:StrLen(str)
+  return strlen(substitute(a:str, '.', 'x', 'g'))
+endfunction
 
 function! s:FGforBG(bg)
   " takes a 6hex color code and returns a matching color that is visible
@@ -157,7 +160,7 @@ endfunction
 " This piece of code was ported from lisp.
 " http://julien.danjou.info/rainbow-mode.html
 fun! s:RGBRelativeToAbsolute(value)
-  let string_length = strlen(a:value)-1
+  let string_length = s:StrLen(a:value)-1
   if strpart(a:value, string_length, 1) == '%'
     let hex_value = s:ConvertToBase(  255*strpart(a:value, 0, string_length)/100, 16 )
     if len(hex_value) == 1
@@ -385,7 +388,10 @@ if has("gui_running") || &t_Co==256
   endwhile
   unlet i
 
-  autocmd CursorHold * silent call s:PreviewCSSColorInLine('.')
-  autocmd CursorHoldI * silent call s:PreviewCSSColorInLine('.')
-  set ut=100
-endif   " has("gui_running")
+  autocmd CursorMoved * silent call s:PreviewCSSColorInLine('.')
+  autocmd CursorMovedI * silent call s:PreviewCSSColorInLine('.')
+  if !exists('g:cssColorVimDoNotMessMyUpdatetime')
+    set ut=100
+  endif
+
+endif

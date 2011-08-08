@@ -113,7 +113,8 @@ set t_Co=256
 "colorscheme beachcomber
 "colorscheme Mustang
 "colorscheme molokai
-colorscheme solarized
+"colorscheme solarized
+colorscheme molokai
 if !has('gui_running')
   colorscheme railscasts
 endif
@@ -245,5 +246,6 @@ elseif uname == "Darwin" "OSX Stuff
     "autocmd CursorMovedI * call PlayTick()
     "autocmd CursorMoved * call PlayTick()
     "autocmd InsertLeave * call PlayCarriageReturn()
+    "map <C-t> :PeepOpen<CR>
   endif
 endif

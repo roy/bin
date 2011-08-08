@@ -1,0 +1,16 @@
+#!/usr/bin/ruby -w
+
+cmd = "ps aux | grep \"nginx: master process nginx$\""
+cmd = `#{cmd}`
+
+pid = cmd.match(/^root\s*(.\d*)/)[1].to_i
+
+if cmd == 0
+  puts "nginx not found"
+  break;
+end
+
+unless system("kill -HUP #{pid}")
+  puts "no permission, sudoing now"
+  `sudo kill -HUP #{pid}`
+end

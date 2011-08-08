@@ -6,10 +6,10 @@
 
 " If you prefer Command-T, use this snippet in your .gvimrc:
 
-"if has("gui_macvim")
-"  macmenu &File.New\ Tab key=<nop>
-"  map <D-t> <Plug>PeepOpen
-"end
+" if has("gui_macvim")
+"   macmenu &File.New\ Tab key=<nop>
+"   map <D-t> <Plug>PeepOpen
+" end
 
 " ============================================================================
 
@@ -26,7 +26,7 @@ set cpo&vim
 
 function s:LaunchPeepOpenViaVim()
   let cwd = getcwd()
-  silent exe "!open 'peepopen://" . shellescape(cwd) . "?editor=MacVim'"
+  silent exe "!open \"peepopen://" . shellescape(cwd) . "?editor=MacVim\""
 endfunction
 
 command! PeepOpen :call <SID>LaunchPeepOpenViaVim()

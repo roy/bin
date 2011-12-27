@@ -1,0 +1,61 @@
+#!/usr/bin/ruby -w
+
+method = ARGV[0]
+
+unless %w(add delete open).include? method
+  puts "only open, add and delete are supported"
+  exit
+end
+
+module Local
+  class << self
+    VHOST = %q(<VirtualHost *:80>
+  ServerName :host.local
+  ServerAlias :host.roy.test.rodimedia.nl
+
+  DocumentRoot :pwd/public
+  <Directory ":pwd/public">
+    Options FollowSymlinks
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+  </Directory>
+</VirtualHost>
+
+)
+
+    def host
+      @host ||= File.split(`pwd`).last.strip
+    end
+
+    def pwd
+      `pwd`.strip
+    end
+    def open
+      `open http://#{host}.local` 
+    end
+
+    def add
+      add_to_hosts
+      add_to_vhosts
+    end
+
+    def add_to_hosts
+      `sudo sh -c 'echo "127.0.0.1 #{host}.local" >> /etc/hosts'`
+    end
+
+    def add_to_vhosts
+      vhost = VHOST.gsub(":host", host).gsub(":pwd", pwd)
+      `sudo sh -c 'echo "#{vhost}" >> /etc/apache2/extra/httpd-vhosts.conf'`
+      `sudo apachectl restart`
+    end
+
+    def delete
+      puts "deleting: #{host}"
+    end
+  end
+end
+
+
+Local.send(method)
+#`sudo sh -c 'echo "127.0.0.1 #{host}" >> /etc/hosts'`

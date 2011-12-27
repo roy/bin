@@ -1,40 +1,18 @@
-require 'irb/completion'
-require 'irb/ext/save-history'
-
-class Object
-  def local_methods
-    (methods - Object.instance_methods).sort
+if defined?(::Bundler)
+  global_gemset = ENV['GEM_PATH'].split(':').grep(/ruby.*@global/).first
+  if global_gemset
+    all_global_gem_paths = Dir.glob("#{global_gemset}/gems/*")
+    all_global_gem_paths.each do |p|
+      gem_path = "#{p}/lib"
+      $LOAD_PATH << gem_path
+    end
   end
 end
 
-# have colorized output
-require 'rubygems'
-require 'wirble'
-require 'ap'
-Wirble.init
-Wirble.colorize
-  #       logger = Logger.new(
-  #           ActiveRecord::Base.logger = logger
-  #               ActiveResource::Base.logger = logger
-  #                 end
-  #                 end
-
-#IRB::Irb.class_eval do
-#  def output_value
-#    ap @context.last_value
-#  end
-#end
-# gem install awesome_print
-
-#require 'hirb'
-#Hirb.enable
-
-# output log from rails to the console
-#require 'logger'
-#if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
-#  Object.const_set('RAILS_DEFAULT_LOGGER', Logger.new(STDOUT))
-#end
-
-if (Rails.env rescue false)
-  ActiveRecord::Base.logger = Logger.new(STDOUT)
-end
+=begin
+# Use Pry everywhere
+require "rubygems"
+require 'pry'
+Pry.start
+exit
+=end

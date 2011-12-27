@@ -144,7 +144,10 @@ alias m="mate"
 alias r="rake"
 
 # Rails
-alias reload!='touch tmp/restart.txt'
+function reload!(){
+  echo "restarting rails"
+  touch tmp/restart.txt
+}
 alias sc='./script/console'
 alias sg='./script/generate'
 alias sp='./script/plugin'

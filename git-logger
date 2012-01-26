@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+# coding: utf-8
+require "rubygems"
+require 'rb-fsevent'
+
+LOG_CMD = %[git log --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset" --graph --all]
+
+def git_logger
+  rows, cols = `tput lines; tput cols`.scan(/\d+/).map(&:to_i)
+
+  `clear`
+  print `#{LOG_CMD} -#{rows} | sed -n '1, #{rows-2}p'`
+  puts "updated at #{Time.now.strftime("%H:%M:%S")}"
+end
+
+def on_change &block
+  FSEvent.new.tap {|fsevent|
+    fsevent.watch('.git', &block)
+    fsevent.run
+  }
+end
+
+abort("Run git_logger at the root of the git repo you'd like to watch.") if (ARGV & %w[-h --help help]).any?
+abort("The current directory doesn't look like the root of a git repo.") unless File.directory?('.git')
+git_logger
+on_change { git_logger }

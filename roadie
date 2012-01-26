@@ -1,12 +1,5 @@
 #!/usr/bin/ruby -w
 
-method = ARGV[0]
-
-unless %w(add delete open).include? method
-  puts "only open, add and delete are supported"
-  exit
-end
-
 module Local
   class << self
     VHOST = %q(<VirtualHost *:80>
@@ -57,5 +50,11 @@ module Local
 end
 
 
+method = ARGV[0]
+
+unless %w(add delete open).include? method
+  puts "only open, add and delete are supported"
+  exit
+end
+
 Local.send(method)
-#`sudo sh -c 'echo "127.0.0.1 #{host}" >> /etc/hosts'`

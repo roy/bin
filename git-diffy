@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+# coding: utf-8
+
+puts `git log origin/master..HEAD --oneline`
